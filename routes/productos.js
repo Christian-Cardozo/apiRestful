@@ -7,17 +7,13 @@ const db =  new productoController(rutaArchivo)
 
 
 router.get('/', async (req, res) =>{
-
-    const db =  new productoController(rutaArchivo)
-
+    
     const array = await db.getAll()
 
     res.json(array)    
 })
 
 router.get('/:id', async (req, res) =>{
-
-    const db =  new productoController(rutaArchivo)
 
     let producto = await db.getById(req.params.id)
 
@@ -29,9 +25,7 @@ router.get('/:id', async (req, res) =>{
     res.json(producto)
 })
 
-router.post('/', async (req, res) =>{
-    
-    const db =  new productoController(rutaArchivo)
+router.post('/', async (req, res) =>{    
     
     const productoId = await db.save(req.body)
 
